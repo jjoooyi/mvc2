@@ -58,11 +58,11 @@ public class BasicController {
 
     @Component("helloBean")
     static class  HelloBean {
+
         public String hello(String data) {
             return "Hello" + data;
         }
     }
-
     @GetMapping("/date")
     public String date(Model model) {
         model.addAttribute("localDateTime", LocalDateTime.now());
@@ -104,6 +104,18 @@ public class BasicController {
     public String condition(Model model) {
         addUsers(model);
         return "basic/condition";
+    }
+
+    @GetMapping("comments")
+    public String comments(Model model) {
+        model.addAttribute("data", "spring!");
+        return "basic/comments";
+    }
+
+    @GetMapping("/block")
+    public String block(Model model) {
+        addUsers(model);
+        return "basic/block";
     }
 
     private void addUsers(Model model) {
